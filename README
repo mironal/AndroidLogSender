@@ -1,0 +1,20 @@
+@AndroidLogServer
+PC用サーバ
+Androidからログの受信を行う.
+java -jar AndroidLogServer.jar IPAddr port
+で実行.
+
+IPAdderはPCで待受を行うIPアドレス
+portは待受ポート番号
+
+@LogSender
+Androidアプリ
+インストールして、サーバのIPアドレスとポートを設定するだけ.
+IUは設定画面のみ.
+後はBroadcastReceiverがログを受け取った時に、
+Serviceを起動してサーバに送信してくれる.
+
+@TestLogSender
+Androidアプリ
+
+LogSenderにBroadcastするサンプルアプリ.
