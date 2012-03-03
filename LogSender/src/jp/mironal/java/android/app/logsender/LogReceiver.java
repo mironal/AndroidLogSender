@@ -7,23 +7,24 @@ import android.os.Bundle;
 
 public class LogReceiver extends BroadcastReceiver {
 
-    private static final String EXTRA_NAME_TO = "to"; /* ログの送信先 */
-    private static final String EXTRA_NAME_LOG = "log"; /* ログの内容 */
-
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context ctx, Intent intent) {
         // Log.d("LogReceiver", "receive");
-        Bundle bundle = intent.getExtras();
+
+        final String nameTo = ctx.getString(R.string.extra_to);
+        final String nameLog = ctx.getString(R.string.extra_log);
+
+        final Bundle bundle = intent.getExtras();
 
         /* ログの送信先を取得 */
-        String to = bundle.getString(EXTRA_NAME_TO);
+        final String extraTo = bundle.getString(nameTo);
         /* ログの内容を取得 */
-        String log = bundle.getString(EXTRA_NAME_LOG);
+        final String extraLog = bundle.getString(nameLog);
 
         /* サービス起動 */
-        Intent service = new Intent(context, LogSendService.class);
-        service.putExtra(EXTRA_NAME_TO, to);
-        service.putExtra(EXTRA_NAME_LOG, log);
-        context.startService(service);
+        Intent service = new Intent(ctx, LogSendService.class);
+        service.putExtra(nameTo, extraTo);
+        service.putExtra(nameLog, extraLog);
+        ctx.startService(service);
     }
 }

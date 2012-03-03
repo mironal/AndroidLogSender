@@ -3,5 +3,7 @@
 
     <string name="hello">Hello World!</string>
     <string name="app_name">LogSender</string>
+    <string name="extra_to">to</string>
+    <string name="extra_log">log</string>
 
 </resources>

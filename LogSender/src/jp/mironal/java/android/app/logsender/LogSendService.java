@@ -31,8 +31,10 @@ public class LogSendService extends Service {
         // Log.d(TAG, "ip = " + ip + " port = " + port);
         /* インテントからlog情報を取得 */
         Bundle bundle = intent.getExtras();
+        
+        String to = bundle.getString("to");
         String log = bundle.getString("log");
-
+        
         try {
             // Log.d(TAG,"start client");
             /* サーバにログを送信して、クローズ. */
