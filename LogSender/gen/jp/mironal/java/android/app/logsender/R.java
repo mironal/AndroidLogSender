@@ -21,6 +21,8 @@ public final class R {
         public static final int extra_log=0x7f050003;
         public static final int extra_to=0x7f050002;
         public static final int hello=0x7f050000;
+        public static final int log_to_sd=0x7f050005;
+        public static final int log_to_server=0x7f050004;
     }
     public static final class xml {
         public static final int pref=0x7f040000;
