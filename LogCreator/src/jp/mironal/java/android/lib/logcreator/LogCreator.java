@@ -12,6 +12,7 @@ public class LogCreator {
     private static final String EXTRA_NAME = "log";
 
     private static boolean isLogEnable = false;
+    
     private static Context context;
 
     public static void Init(Context ctx) {
