@@ -8,11 +8,11 @@ import android.content.pm.PackageManager.NameNotFoundException;
 
 public class LogCreator {
 
-    private static boolean IS_LOG_ENABLE = false;
-
     private static final String ACTION = "jp.mironal.java.android.app.logsender.receiver.LOG";
     private static final String EXTRA_NAME = "log";
 
+    private static boolean isLogEnable = false;
+    
     private static Context context;
 
     public static void Init(Context ctx) {
@@ -20,7 +20,7 @@ public class LogCreator {
             throw new NullPointerException("ctx is null.");
         }
         context = ctx;
-        IS_LOG_ENABLE = checkDebuggable(ctx);
+        isLogEnable = checkDebuggable(ctx);
     }
 
     /**
@@ -44,19 +44,19 @@ public class LogCreator {
         return false;
     }
 
-    public static void d(String tag, String msg) {
+    public static void d(String log) {
 
     }
 
-    public static void i(String tag, String msg) {
+    public static void i(String log) {
 
     }
 
-    public static void w(String tag, String msg) {
+    public static void w(String log) {
 
     }
 
-    public static void e(String tag, String msg) {
+    public static void e(String log) {
 
     }
 
@@ -66,7 +66,7 @@ public class LogCreator {
             return;
         }
         /* intentを飛ばす */
-        if (IS_LOG_ENABLE) {
+        if (isLogEnable) {
             Intent intent = new Intent(ACTION);
             intent.putExtra(EXTRA_NAME, log);
             context.sendBroadcast(intent);
