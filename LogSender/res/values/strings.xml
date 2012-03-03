@@ -5,8 +5,8 @@
     <string name="app_name">LogSender</string>
     <string name="extra_to">to</string>
     <string name="extra_log">log</string>
-    
     <string name="log_to_server">server</string>
     <string name="log_to_sd">sd</string>
+    <string name="no_log_msg">no log.</string>
 
 </resources>

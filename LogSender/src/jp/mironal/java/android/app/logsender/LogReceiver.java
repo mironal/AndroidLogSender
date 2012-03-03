@@ -17,9 +17,18 @@ public class LogReceiver extends BroadcastReceiver {
         final Bundle bundle = intent.getExtras();
 
         /* ログの送信先を取得 */
-        final String extraTo = bundle.getString(nameTo);
+        String extraTo = bundle.getString(nameTo);
+        if (extraTo == null) {
+            /* ログの送信先が設定されていなかったら、サーバに送る(デフォルトはとりあえずサーバにする). */
+            extraTo = ctx.getString(R.string.log_to_server);
+        }
+
         /* ログの内容を取得 */
-        final String extraLog = bundle.getString(nameLog);
+        String extraLog = bundle.getString(nameLog);
+        if (extraLog == null) {
+            /* ログが設定されていなかったら何かオカシイので、メッセージを付加 */
+            extraLog = ctx.getString(R.string.no_log_msg);
+        }
 
         /* サービス起動 */
         Intent service = new Intent(ctx, LogSendService.class);
