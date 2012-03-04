@@ -15,7 +15,10 @@ public class LogCreator {
     }
 
     public static void d(String tag, String msg) {
-
+        LogInfoBuilder builder = new LogInfoBuilder();
+        builder.addInfo("msg", msg);
+        builder.addInfo("tag", tag);
+        LogSender.sendLog(builder);
     }
 
     public static void i(String tag, String msg) {

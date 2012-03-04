@@ -7,13 +7,18 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 
 class LogSender {
-    
+
+    public static final String[] LEVEL_TABLE = { "", /* no mapping */
+    "", /* reserved */
+    "", /* reserved */
+    "Debug", "Info", "Warn", "Error", };
+
     private static final String ACTION = "jp.mironal.java.android.app.logsender.receiver.LOG";
     private static final String EXTRA_NAME = "log";
-    
-    private static  boolean isLogEnable = false;
-    private static  Context context;
-    
+
+    private static boolean isLogEnable = false;
+    private static Context context;
+
     public static void Init(Context ctx) {
         if (ctx == null) {
             throw new NullPointerException("ctx is null.");
@@ -21,7 +26,7 @@ class LogSender {
         context = ctx;
         isLogEnable = checkDebuggable(ctx);
     }
-    
+
     /**
      * マニフェストファイルからデバッグモードかどうか取得
      * 
@@ -41,6 +46,14 @@ class LogSender {
             return true;
         }
         return false;
+    }
+
+    public static void sendLog(LogInfoBuilder info) {
+        if (isLogEnable) {
+            Intent intent = info.buildIntent(ACTION);
+            context.sendBroadcast(intent);
+        }
+
     }
 
     public static void sendLog(String log) {
