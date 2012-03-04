@@ -13,7 +13,7 @@ public class TestLogSenderActivity extends Activity {
         for (int i = 0; i < 10; i++) {
             Intent intent = new Intent(
                     "jp.mironal.java.android.app.logsender.receiver.LOG");
-            intent.putExtra("log", "logloglgo" + System.currentTimeMillis());
+            intent.putExtra("msg", "logloglgo" + System.currentTimeMillis());
             sendBroadcast(intent);
         }
         finish();

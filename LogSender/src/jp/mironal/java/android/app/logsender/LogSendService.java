@@ -7,9 +7,9 @@ import java.net.Socket;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 public class LogSendService extends Service {
 
@@ -28,15 +28,10 @@ public class LogSendService extends Service {
         String portStr = pref.getString("port", "9999");
         int port = Integer.parseInt(portStr);
 
-        // Log.d(TAG, "ip = " + ip + " port = " + port);
+         Log.d(TAG, "ip = " + ip + " port = " + port);
+        
         /* インテントからlog情報を取得 */
-        Bundle bundle = intent.getExtras();
-
-        /* ログの送信先を取得 */
-        String extraTo = bundle.getString(getString(R.string.extra_to));
-
-        /* ログの情報を取得 */
-        String extraLog = bundle.getString(getString(R.string.extra_log));
+        LogInfoContainer infoContainer = new LogInfoContainer(this, intent);
 
         try {
             // Log.d(TAG,"start client");
@@ -45,7 +40,7 @@ public class LogSendService extends Service {
 
             OutputStream out = sock.getOutputStream();
             PrintWriter pw = new PrintWriter(out);
-            pw.print(extraLog);
+            pw.print(infoContainer.getMsg());
             pw.flush();
             sock.close();
         } catch (Exception e) {

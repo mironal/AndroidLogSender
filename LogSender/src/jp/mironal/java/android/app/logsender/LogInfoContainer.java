@@ -87,8 +87,7 @@ public class LogInfoContainer {
      */
     public String getTo() {
         final String name = getResString(R.string.extra_to);
-        return getExtraIfNullDefault(getBundleString(name),
-                getResString(R.string.log_to_server));
+        return getExtraIfNullDefault(name, getResString(R.string.log_to_server));
     }
 
     /**
@@ -98,8 +97,7 @@ public class LogInfoContainer {
      */
     public String getType() {
         final String name = getResString(R.string.extra_type);
-        return getExtraIfNullDefault(getBundleString(name),
-                getResString(R.string.log_type_json));
+        return getExtraIfNullDefault(name, getResString(R.string.log_type_json));
     }
 
     /**
@@ -109,16 +107,12 @@ public class LogInfoContainer {
      */
     public String getMsg() {
         final String name = getResString(R.string.extra_msg);
-        return getExtraIfNullDefault(getBundleString(name),
-                getResString(R.string.no_log_msg));
+
+        return getExtraIfNullDefault(name, getResString(R.string.no_log_msg));
     }
 
     private String getResString(int resId) {
         return context.getString(resId);
-    }
-
-    private String getBundleString(final String name) {
-        return bundle.getString(name);
     }
 
     private String getExtraIfNullDefault(final String name, final String defStr) {

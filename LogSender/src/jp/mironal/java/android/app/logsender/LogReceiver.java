@@ -8,7 +8,8 @@ public class LogReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context ctx, Intent intent) {
-        // Log.d("LogReceiver", "receive");
+        //Log.d("LogReceiver", "receive");
+         
         LogInfoContainer infoContainer = new LogInfoContainer(ctx, intent);
 
         /* サービス起動 */
