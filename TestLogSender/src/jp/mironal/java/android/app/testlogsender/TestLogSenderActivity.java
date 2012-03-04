@@ -1,6 +1,5 @@
 package jp.mironal.java.android.app.testlogsender;
 
-import jp.mironal.java.android.lib.logcreator.LogCreator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

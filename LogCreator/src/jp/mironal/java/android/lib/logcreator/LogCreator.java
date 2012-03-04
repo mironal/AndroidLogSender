@@ -16,8 +16,9 @@ public class LogCreator {
 
     public static void d(String tag, String msg) {
         LogInfoBuilder builder = new LogInfoBuilder();
-        builder.addInfo("msg", msg);
-        builder.addInfo("tag", tag);
+        builder.setCurrentTime().setMsg(msg).setTag(tag)
+                .setLevel(LogInfoBuilder.LEVEL_D);
+
         LogSender.sendLog(builder);
     }
 
