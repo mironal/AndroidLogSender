@@ -18,14 +18,18 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f050001;
-        public static final int extra_log=0x7f050003;
-        public static final int extra_to=0x7f050002;
+        public static final int extra_level=0x7f050005;
+        public static final int extra_msg=0x7f050004;
+        public static final int extra_tag=0x7f050003;
+        public static final int extra_time=0x7f050002;
+        public static final int extra_to=0x7f050006;
+        public static final int extra_type=0x7f050007;
         public static final int hello=0x7f050000;
-        public static final int log_to_sd=0x7f050005;
-        public static final int log_to_server=0x7f050004;
-        public static final int log_type_default=0x7f050006;
-        public static final int log_type_plane=0x7f050007;
-        public static final int no_log_msg=0x7f050008;
+        public static final int log_to_sd=0x7f050009;
+        public static final int log_to_server=0x7f050008;
+        public static final int log_type_json=0x7f05000a;
+        public static final int log_type_plane=0x7f05000b;
+        public static final int no_log_msg=0x7f05000c;
     }
     public static final class xml {
         public static final int pref=0x7f040000;

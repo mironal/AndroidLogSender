@@ -3,11 +3,17 @@
 
     <string name="hello">Hello World!</string>
     <string name="app_name">LogSender</string>
+    
+    <string name="extra_time">time</string>
+    <string name="extra_tag">tag</string>
+    <string name="extra_msg">msg</string>
+    <string name="extra_level">level</string>
     <string name="extra_to">to</string>
-    <string name="extra_log">log</string>
+    <string name="extra_type">type</string>
+    
     <string name="log_to_server">server</string>
     <string name="log_to_sd">sd</string>
-    <string name="log_type_default">default</string>
+    <string name="log_type_json">json</string>
     <string name="log_type_plane">plane</string>
 
     <string name="no_log_msg">no log.</string>

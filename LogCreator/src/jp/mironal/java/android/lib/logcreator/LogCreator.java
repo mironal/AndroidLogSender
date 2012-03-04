@@ -11,7 +11,7 @@ public class LogCreator {
      *            コンテキスト.
      */
     public static void Init(Context ctx) {
-        LogCreator.Init(ctx);
+        LogSender.Init(ctx);
     }
 
     public static void d(String tag, String msg) {
